@@ -1,6 +1,6 @@
 # Customer Churn Prediction
 
-> Predict which bank customers are about to leave — using Random Forest, XGBoost, and LightGBM — with a rule-based system for business teams.
+Predict which bank customers are about to leave — using Random Forest, XGBoost, and LightGBM — with a rule-based system for business teams.
 
 ---
 
@@ -26,15 +26,15 @@ The dataset has **10,000 rows** and **14 columns**:
 
 ## Tasks Covered
 
-- [x] Load & explore the dataset
-- [x] Clean data (handle nulls, drop ID columns)
-- [x] Encode categorical features (Label + One-Hot)
-- [x] Feature engineering (AgeGroup, BalancePerProduct, IsHighRisk)
-- [x] Train 3 ML models (RF, XGBoost, LightGBM)
-- [x] Compare using Accuracy, ROC-AUC, F1 Score
-- [x] Visualize ROC curves and confusion matrices
-- [x] Build a rule-based churn detection system
-- [x] Explain which model performs best and why
+- Load & explore the dataset
+- Clean data (handle nulls, drop ID columns)
+- Encode categorical features (Label + One-Hot)
+- Feature engineering (AgeGroup, BalancePerProduct, IsHighRisk)
+- Train 3 ML models (RF, XGBoost, LightGBM)
+- Compare using Accuracy, ROC-AUC, F1 Score
+- Visualize ROC curves and confusion matrices
+- Build a rule-based churn detection system
+- Explain which model performs best and why
 
 ---
 
@@ -50,7 +50,6 @@ Gradient boosting — each new tree learns from the mistakes of the previous one
 Microsoft's faster gradient boosting framework. Grows trees leaf-wise instead of level-wise, making it more efficient without sacrificing accuracy.
 
 ### 4. Rule-Based System (Bonus)
-A hand-crafted decision system based on business logic:
 - Germany customers → higher risk
 - Older + inactive → high risk
 - 3+ products → suspicious churn pattern
@@ -72,27 +71,26 @@ A hand-crafted decision system based on business logic:
 
 ### Model Comparison Summary
 
-| Model | Accuracy | ROC-AUC | F1 | Best For |
-|-------|----------|---------|----|---------|
-| Random Forest | ~86% | ~0.88 | ~0.65 | Solid baseline, interpretable |
-| XGBoost | ~87% | ~0.89 | ~0.67 | Strong all-rounder |
-| **LightGBM** | **~87%** | **~0.90** | **~0.68** | **Best performance + fast** |
-| Rule-Based | ~78% | N/A | ~0.55 | Business rules, auditability |
+| Model | Accuracy | ROC-AUC | F1 Score |
+|-------|----------|---------|----------|
+| **Random Forest** | 84.20% | 0.8609 | 0.6291 |
+| XGBoost | 83.85% | 0.8598 | 0.6325 |
+| LightGBM | 81.30% | 0.8578 | 0.6088 |
+| Rule-Based | ~78% | N/A | ~0.55 |
 
-> Exact numbers will vary slightly depending on your environment.
 
 ---
 
-### Recommendation: LightGBM
+### Recommendation: Random Forest
 
-**LightGBM performs best** for the following reasons:
+**Random Forest performs best** for the following reasons:
 
-1. **Highest ROC-AUC** — best at distinguishing churners from non-churners
-2. **Fastest training** — leaf-wise tree growth is very efficient on 10k rows
-3. **Best F1 Score** — good balance of precision and recall for churners
+1. **Highest Accuracy** — 84.20%, best overall correctness across the test set
+2. **Highest ROC-AUC** — 0.8609, best at distinguishing churners from non-churners
+3. **Strong F1 Score** — 0.6291, good balance of precision and recall for churners
 4. **Handles imbalance** — class_weight='balanced' helps catch more churners
 
-**XGBoost is a close second** and may be preferred in production systems where there's more data or need for fine-tuned regularization.
+**XGBoost is a close second** with a slightly better F1 (0.6325) and may be preferred when catching churners matters more than overall accuracy.
 
 ### Rule-Based System 
 
