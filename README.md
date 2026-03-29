@@ -49,7 +49,7 @@ Gradient boosting — each new tree learns from the mistakes of the previous one
 ### 3. LightGBM
 Microsoft's faster gradient boosting framework. Grows trees leaf-wise instead of level-wise, making it more efficient without sacrificing accuracy.
 
-### 4. Rule-Based System (Bonus)
+### 4. Rule-Based System 
 - Germany customers → higher risk
 - Older + inactive → high risk
 - 3+ products → suspicious churn pattern
